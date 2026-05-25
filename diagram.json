@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb2", "top": 179.4, "left": -26, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -47.4, "left": -183, "attrs": {} },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc1",
+      "top": 266.3,
+      "left": 202.4,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 262.34,
+      "left": 38.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 243.95,
+      "left": 0,
+      "attrs": { "value": "10000" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 115.5, "left": -15, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 294.2,
+      "left": -153.6,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "bb2:tp.1", "uno:5V", "green", [ "v0" ] ],
+    [ "uno:GND.2", "bb2:tn.1", "black", [ "v0" ] ],
+    [ "r1:2", "bb2:2t.c", "green", [ "v0" ] ],
+    [ "rtc1:GND", "bb2:tn.25", "black", [ "v0" ] ],
+    [ "rtc1:5V", "bb2:tp.24", "red", [ "v0" ] ],
+    [ "rtc1:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "rtc1:SCL", "uno:A5", "green", [ "v0" ] ],
+    [ "oled1:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "oled1:SCL", "uno:A5", "green", [ "v0" ] ],
+    [ "oled1:VCC", "bb2:tp.8", "red", [ "v0" ] ],
+    [ "oled1:GND", "bb2:tn.7", "black", [ "v0" ] ],
+    [ "dht1:GND", "bb2:tn.6", "black", [ "v0" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v0" ] ],
+    [ "dht1:VCC", "bb2:tp.6", "red", [ "v0" ] ],
+    [ "rtc1:GND", "bb2:30t.e", "", [ "$bb" ] ],
+    [ "rtc1:5V", "bb2:29t.e", "", [ "$bb" ] ],
+    [ "rtc1:SDA", "bb2:28t.e", "", [ "$bb" ] ],
+    [ "rtc1:SCL", "bb2:27t.e", "", [ "$bb" ] ],
+    [ "rtc1:SQW", "bb2:26t.e", "", [ "$bb" ] ],
+    [ "oled1:GND", "bb2:9t.e", "", [ "$bb" ] ],
+    [ "oled1:VCC", "bb2:10t.e", "", [ "$bb" ] ],
+    [ "oled1:SCL", "bb2:11t.e", "", [ "$bb" ] ],
+    [ "oled1:SDA", "bb2:12t.e", "", [ "$bb" ] ],
+    [ "r1:1", "bb2:1t.c", "", [ "$bb" ] ],
+    [ "r1:2", "bb2:7t.c", "", [ "$bb" ] ],
+    [ "dht1:VCC", "bb2:1t.a", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb2:2t.a", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb2:3t.a", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb2:4t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
